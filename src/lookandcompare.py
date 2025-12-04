@@ -119,7 +119,7 @@ def to_doc_headtail(df, columna):
     bottom5 = "\n".join([f"{idx}ㅤㅤ{val}%" for idx, val in frecuencias.tail(5).items()])
 
     reporte = f"""
-|    Tipo {dtype}  |   {columna}   |
+|    dtype: {dtype}  |   {columna}   |
 |-----------|---------------|
 | Top 5: |{top5}
 |Bottom 5: |{bottom5}<br><br>Valores únicos: **{valores_unicos}**<br>Número de registros: **{num_registros}**<br>Valores nulos: **{valores_nulos}**<br>Registros duplicados: **{duplicados}**
