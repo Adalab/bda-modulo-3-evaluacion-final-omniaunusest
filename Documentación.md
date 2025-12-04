@@ -1,4 +1,16 @@
+
+# Documentación: EDA + Transformación
+
+El proceso de exploración de datos que está documentado, ha dado lugar a transformaciones de datos de dos archivos proporcionados previamente, para mayor optimización se han fusionado en un sólo .csv
+
+**---<---<---<---@ [Flight Loyalty Activity](/csv/flight-loyalty-activity.csv)** 
+
+
+
+
 ## Customer Flight Analysis
+
+[Contenido de este archivo](/csv/c-flight-activity.csv).
 
 ### Loyalty Number
 
@@ -30,6 +42,14 @@ El **identificador único** presenta duplicados, probablemente debido al número
        
 
 Ir a [customer loyalty](#customer-loyalty-history) para comparar con la columna de Identificación única de clientes.
+
+**Propuesta de mejora**:
+
+- Renombrar esta columna de cara a la fusión de ambos archivos de datos. El campo de esta columna es más relativo a la frecuencia de vuelos que al Identificador en sí.
+
+**Propuesta ejecutada**:
+
+- Esta columna ha sido convertida en ``frequency_id`` con el conteo de las frecuencias con las que aparece (nº de vuelos por ID de cliente).
 
 ---
 ---
@@ -98,7 +118,7 @@ Ir a [customer loyalty](#customer-loyalty-history) para comparar con la columna 
 ||21ㅤㅤ0.13<br><br>Valores únicos: **22**<br>Número de registros: **405624**<br>Valores nulos: **0**|
 ---
 
-    > No queda muy claro a qué mes se refiere el epígrafe que describre la columna. Habrá que cruzar información con otras celdas.
+Sin anomalías ni mayor observación.
 
 ---
 ---
@@ -122,6 +142,7 @@ Ir a [customer loyalty](#customer-loyalty-history) para comparar con la columna 
 ---
 
     > Una mayoría reservó sus vueltos sin acompañante.
+    > También es una posibilidad que entre esos valores '0', haya miembros que no han volado. Habría que tener en cuenta este dato a partir de 1.
 
 
 ---
@@ -220,7 +241,7 @@ Contaremos para la observación sólo con la base de clientes que sí realizó v
 
     > El número de clientes que usa sus puntos es 11560 de una base con 16737 clientes registrados.
 
-[Ir a visualización](#programa-de-fidelización-y-puntos)
+[Ir a visualización](#programa-de-fidelización-puntos-acumulados)
 
 ---
 ---
@@ -259,6 +280,8 @@ Puede deberse a:
 ---
 
 # Customer Loyalty History
+
+[Contenido de este archivo](csv/c-loyalty-history.csv).
 
 
 ### Loyalty Number
@@ -498,7 +521,7 @@ Esta disparidad nos indica:
 - Hay clientes cuyo beneficio estimado diverge tan por encima de la media que desvirtúan la estimación.
 - El grueso de la base de clientes es más modesta en estimación de beneficio pero con una media robusta en cantidad.
 
-Ir a visualización.
+[Ir a visualización.](#distribución-del-clv)
 
 ---
 ---
@@ -531,7 +554,7 @@ Ir a visualización.
 ||2012ㅤㅤ10.07<br><br>Valores únicos: **7**<br>Número de registros: **16737**<br>Valores nulos: **0**|
 ---
 
-Ir a visualización.
+[Ir a visualización.](#relación-de-inscripciones-por-año)
 
 ---
 ---
@@ -558,7 +581,7 @@ Ir a visualización.
 
 No se aprecia significativamente una tendencia diferencial entre meses, salvo por los dos primeros meses de mes que no parece que favorezcan la adhesión.
 
-Ir a visualización.
+[Ir a visualización.](#relación-de-inscripciones-por-mes)
 
 ---
 ---
@@ -618,16 +641,6 @@ Por lo que podemos afirmar:
 ㅤ  
 # Visualización de datos
 
-### Programa de fidelización y puntos
-
-<figure>
-    <img src='img/v1.png '
-         alt="Uso de puntos del programa de fidelidad"
-         width="336" height="340">
-    <figcaption>El uso de los puntos del programa de fidelidad muestra un mayor número de clientes que los han usado.</figcaption>
-</figure>
-
----
 
 ### Nivel Educativo
 
@@ -647,4 +660,40 @@ Por lo que podemos afirmar:
          alt="Nivel educativo de los clientes"
          width="700" height="400">
     <figcaption>El grueso de la mayor parte de beneficios por cliente es modesto, pero más sustancial en cantidad que los 'outliers', o casos excepcionales, cuyo beneficio estimado es mayor.</figcaption>
+</figure>
+
+**Otro ejemplo visual:**
+
+<figure>
+<img src='img/v3.1.png '
+         alt="Nivel educativo de los clientes">
+    <figcaption>En este ejemplo podemos visualizar mejor la distribución de los beneficios excepcionales.</figcaption>
+</figure>
+
+### Programa de Fidelización
+
+#### Relación de inscripciones por año
+
+<figure>
+<img src='img/v4.png '
+         alt="Nivel educativo de los clientes"
+         width="700" height="400">
+    <figcaption>El programa de fidelización tiene una tendencia creciente en inscripciones con el paso de los años hasta la fecha registrada.</figcaption>
+</figure> 
+
+#### Relación de inscripciones por mes
+
+<figure>
+<img src='img/v5.png '
+         alt="Nivel educativo de los clientes">
+    <figcaption>El programa de fidelización no registra mucho éxito con las altas nuevas durante los primeros meses del año.</figcaption>
+</figure>
+
+#### Programa de fidelización: puntos acumulados
+
+<figure>
+    <img src='img/v1.png '
+         alt="Uso de puntos del programa de fidelidad"
+         width="336" height="340">
+    <figcaption>El uso de los puntos del programa de fidelidad muestra un mayor número de clientes que los han usado.</figcaption>
 </figure>
